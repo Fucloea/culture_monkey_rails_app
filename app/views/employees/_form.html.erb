@@ -1,0 +1,79 @@
+<div class="container text-center" >
+  <br>
+  <%= form_with(model: employee) do |form| %>
+
+    <div style="display: flex; justify-content: center; gap:100px ; margin-right: 10px; margin-top: 40px">
+      <div >
+        <div style="text-align: left; margin-bottom: 5px">
+            <%= form.label "First Name: " , style: "font-size:16px;" %><br>
+        </div>
+        <%= form.text_field :first_name, placeholder: 'John', style: "width:200px; height: 40px; font-size:14px" %>
+        <% if employee.errors[:first_name].any? %>
+          <div class="text-danger">
+            <%= employee.errors[:first_name].join(', ') %>
+          </div>
+        <% end %>
+      </div>
+      <div>
+        <div style="text-align: left">
+          <%= form.label "Last Name: " , style: "font-size:16px;" %><br>
+        </div>
+        <%= form.text_field :last_name, placeholder: 'Doe', style: "width:200px; height: 40px; font-size:14px" %>
+        <% if employee.errors[:last_name].any? %>
+          <div class="text-danger">
+            <%= employee.errors[:last_name].join(', ') %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+     <div style="display: flex; justify-content: center; gap:100px; margin-right: 10px; margin-top: 60px">
+      <div>
+        <div style="text-align: left">
+          <%= form.label "Email:" , style: "font-size:16px;" %><br>
+        </div>
+        <%= form.email_field :email, placeholder: 'example@domain.com', style: "width:200px; height: 40px; font-size:14px" %>
+        <% if employee.errors[:email].any? %>
+          <div class="text-danger">
+            <%= employee.errors[:email].join(', ') %>
+          </div>
+        <% end %>
+      </div>
+      <div>
+        <div style="text-align: left">
+          <%= form.label "Designation: " , style: "font-size:16px;" %><br>
+        </div>
+        <%= form.text_field :designation, placeholder: 'Intern/Manager', style: "width:200px; height: 40px; font-size:14px" %>
+        <% if employee.errors[:designation].any? %>
+          <div class="text-danger">
+            <%= employee.errors[:designation].join(', ') %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: center; margin-right: 10px; margin-top: 60px">
+      <div >
+        <div style="text-align: left">
+        <%= form.label "Department: " , style: "font-size:16px;" %><br>
+      </div>
+         <%= form.collection_select :department_id, Department.all, :id, :name, prompt: "Select Department",:style => "height:300px" %> 
+        <% if employee.errors[:department].any? %>
+          <div class="text-danger">
+            <%= employee.errors[:department].join(', ') %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+
+    <div style="display: flex; justify-content: center;gap:100px; margin-right: 10px; margin-top: 60px">
+      <div >
+        <%= form.submit 'Add Employee', style:"height: 32px; background-color: #55ce97; border-width: 0px; "%>    
+      </div>
+  <% end %>
+      <div>
+        <%= button_to "Back", employees_path, method: :get, style:"border-width:1px; border-color: #55ce97; height: 32px; color: #55ce97; background-color: white"%>
+      </div>
+    </div>
+</div>
+

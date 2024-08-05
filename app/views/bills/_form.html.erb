@@ -1,0 +1,48 @@
+<div class="container text-center" style="margin-top: 10px;">
+
+  <%= form_with(model: bill) do |form| %> 
+
+    <div style="display: flex; flex-direction: column; width: 200px; margin-left: 450px; margin-bottom: 20px">
+      <div>
+        <div style="text-align: left; margin-left:10px">
+          <%= form.label "Type", style: "font-size:16px;" %> <br>
+         </div> 
+        <%= form.collection_select :bill_type, ["Food", "Travel", "Others"], :to_s, :to_s, prompt: "Select Department" %>
+        <% if bill.errors[:bill_type].any? %>
+          <div class="text-danger">
+            <%= bill.errors[:bill_type].join(', ') %>
+          </div>
+        <% end %>
+      </div>
+
+      <br><br>
+       <div style="text-align: left; margin-left:10px">
+        <%= form.label "AMOUNT" %> <br>
+        <%= form.number_field :amount, style: "500px;" , placeholder: "₹" %>
+        <% if bill.errors[:amount].any? %>
+          <div class="text-danger">
+            <%= bill.errors[:amount].join(', ') %>
+          </div>
+          <% end %>
+        </div>
+
+        <br><br>
+
+      <div style="text-align: left; margin-left:10px">
+        <%= form.label "EMPLOYEE NAME" %> <br>  
+          <%= form.collection_select :employee_id, Employee.all, :id, :full_name, prompt: "Select an Employee"%>
+        <% if bill.errors[:employee].any? %>
+          <div class="text-danger">
+            <%= bill.errors[:employee].join(', ') %>
+          </div>
+        <% end %>
+      </div>
+
+    </div>   
+
+    <div style="display: flex; justify-content: center;gap:100px; margin-right: 10px; margin-top: 60px">
+      <%= form.submit 'Save Bill' , style: "color: white; background-color: #7a34eb"%>
+    <% end %>
+      <%= button_to "Back", bills_path, method: :get, style:"border-width:1px; border-color: #7a34eb; height: 32px; color: #7a34eb; background-color: white"%>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+<body style="background: rgb(87,38,59);
+background: linear-gradient(90deg, rgba(87,38,59,1) 8%, rgba(45,129,3,1) 8%);">
+
+  <div id='emp text' style="margin-left: 30px; position: fixed;top: 25%;left: 0; t; white-space: nowrap; font-size: 30px; font-weight: bold; writing-mode: vertical-lr; text-orientation: upright; color: black">DEPARTMENTS</div>
+	
+
+  <div id="departments">
+    <table class="department-table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @departments.each do |department| %>
+          <tr>  
+            <td><%= department.name %></td>
+            <td><%= button_to "Delete", department, method: :delete, style: "color: red; border-width: 0px" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+
+	<div style="position: fixed; top: 5px; right: 10px; font-size: 16px;">
+	  <%= button_to "Add Department", new_department_path, method: :get, style:"border-radius: 5px; padding: 10px; border: 1px solid white; background: #55ce97; color: white"%>
+	</div>
+
+</body>

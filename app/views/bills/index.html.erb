@@ -1,0 +1,37 @@
+<body style="background: rgb(124,117,120);
+background: linear-gradient(90deg, rgba(124,117,120,1) 8%, rgba(11,11,11,1) 8%);" >  
+
+  <div id='emp text' style="margin-left: 30px; position: fixed;top: 40%;left: 0; t; white-space: nowrap; font-size: 30px; font-weight: bold; writing-mode: vertical-lr; text-orientation: upright; color: white">BILLS</div>
+
+  <p style="text-align: center; font-size: 30px; color: white;"> Total Submitted: ₹<%= @total_value %> </p>
+  
+  <div id="bills">
+    <table class="bills-table">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Amount</th>
+          <th> Date of Submission </th>
+          <th>Employee</th>
+          <th> Department </th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @bills.each do |bill| %>
+          <tr>  
+            <td><%= bill.bill_type %></td>
+            <td>₹<%= bill.amount %></td>
+            <td> <%= bill.created_at.strftime("%d-%m-%Y") %> </td>
+            <td> <%= link_to bill.employee.full_name, bill.employee, target: "_blank" %></td>
+            <td> <%= bill.employee.department.name %> </td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div style="position: fixed; top: 5px; right: 10px;">
+    <%= button_to "Create New Bill", new_bill_path, method: :get, style:"border-radius: 5px; padding: 10px; border: 1px solid white; background: #55ce97; color: white"%>
+  </div> 
+</body>

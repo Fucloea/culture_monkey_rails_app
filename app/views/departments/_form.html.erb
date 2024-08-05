@@ -1,0 +1,20 @@
+<div class="container text-center" style="margin-top: 120px;">
+  
+  <%= form_with(model: department) do |form| %>
+    <div class="mb-3">
+      <label for="exampleInputEmail1" class="form-label">Enter department name</label>
+      <br>
+      <%= form.text_field :name %>
+        <% if department.errors[:name].any? %>
+        <div class="text-danger">
+          <%= department.errors[:name].join(', ') %>
+        </div>
+      <% end %>
+    </div> 
+
+    <%= form.submit 'Save Department Details', class:'btn btn-success' %>
+
+
+  <% end %>
+</div>
+

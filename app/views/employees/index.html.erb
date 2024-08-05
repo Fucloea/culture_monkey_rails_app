@@ -1,0 +1,32 @@
+<body style="background: rgb(0,2,36); background: linear-gradient(90deg, rgba(0,2,36,1) 8%, rgba(9,121,116,1) 8%); ">
+
+  <!-- <p style="color: red; text-align: center;"><%= notice %></p> -->
+
+  <div id='emp text' style="margin-left: 30px; position: fixed;top: 30%;left: 0; t; white-space: nowrap; font-size: 30px; font-weight: bold; writing-mode: vertical-lr; text-orientation: upright; color: white">EMPLOYEES</div>
+
+  <div id="employees">
+    <table class="employee-table">
+      <thead>
+        <tr>
+        <th>Full Name</th>
+        <th>Designation</th>
+        <th>Department</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @employees.each do |employee| %>
+        <tr>
+          <td><%= link_to "#{employee.full_name}", employee %></td>
+          <td><%= employee.designation %></td>
+          <td><%= employee.department.name %></td>
+        </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+
+
+  <div style="position: fixed; top: 5px; right: 10px;">
+    <%= button_to "Add New Employee", new_employee_path, method: :get, style:"border-radius: 5px; padding: 10px; border: 1px; background: #55ce97; color: white"%>
+  </div>
+</body>

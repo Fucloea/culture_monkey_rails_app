@@ -1,0 +1,14 @@
+<body style="background: rgb(10,181,50);
+background: radial-gradient(circle, rgba(10,181,50,1) 100%, rgba(1,77,40,1) 100%);">
+
+	<div style="text-align: center;margin-top: 10px; font-size: 40px"> <strong> Edit Bill Details </strong> </div>
+
+	<%= render "form", bill: @bill %>
+
+	<br>
+
+	<div style="text-align: center;">
+	  <%= link_to "Back to bills list", bills_path, class: 'btn btn-primary'%>
+	</div>
+
+</body>

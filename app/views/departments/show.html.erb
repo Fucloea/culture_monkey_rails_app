@@ -1,0 +1,9 @@
+<div style="color: green; text-align: center;"><%= notice %></div>
+
+<%= render @department %>
+
+<div style="text-align: center;">
+  <%= button_to "Delete this department", @department, method: :delete, class: "btn btn-danger" %>
+  <br><br>
+  <%= link_to "Back to departments", departments_path, class: 'btn btn-primary'%>
+</div>

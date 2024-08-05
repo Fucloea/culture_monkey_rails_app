@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+
+<style> 
+* {
+  margin: 0;
+  padding: 0;
+  text-decoration: none;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+body, html {
+  height: 100%;
+  font-family: Arial, sans-serif;
+}
+
+.main_container {
+  height: 100vh;
+  background: rgb(85, 206, 151);
+  background-size: cover; 
+
+}
+
+.content {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  margin-left: 500px;
+  margin-bottom: 70px;
+  text-align: center;
+  font-size: 28px;
+  color: white;
+}
+
+.content a {
+  transition: color 0.3s ease;
+}
+
+.content a:hover {
+  color: #bae3ca; 
+}
+
+
+</style>
+
+
+
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hello</title>
+</head>
+<body>
+  <div class="main_container">
+    <div style="position: absolute; left: 10%; bottom: 40%; margin-left: 320px; margin-bottom: 70px; text-align: center; font-size: 100px; color: #87e0b8;"> ※ \(^o^)/ ※ </div>
+    <div class="content">
+      <p>Hey there, unauthenticated user, <br> Click <%= link_to 'here', departments_path %> to get started</p>
+    </div>
+  </div>
+</body>
+</html>
