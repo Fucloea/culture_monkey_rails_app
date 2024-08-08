@@ -11,7 +11,11 @@
          <li class="nav-item">
         <%= link_to 'Home', root_path , class: 'nav-link active'%>
         </li>
+        <li class="nav-item">
 
+        <%= link_to "Departments", departments_path, class: "nav-link active" %>
+      </li>
+      
         <li class="nav-item">
 
           <%= link_to "Employees", employees_path, class: "nav-link active" %>
@@ -21,10 +25,7 @@
           <%= link_to "Bills", bills_path, class: "nav-link active" %>
         </li>
 
-        <li class="nav-item">
-
-          <%= link_to "Departments", departments_path, class: "nav-link active" %>
-        </li>
+       
 
          <li class="nav-item">
             <%= link_to "Imporovements", improvements_path, class: "nav-link active", style: "color: #f8f9fa" %>

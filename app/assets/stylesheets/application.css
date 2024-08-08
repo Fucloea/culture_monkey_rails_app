@@ -14,7 +14,7 @@
  *= require_self
  */
 
-#employees, #bills {
+ #employees, #bills {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -68,6 +68,6 @@
   padding: 12px;
   border-bottom: 1px solid #ddd;
   text-align: center; 
-  background-color: #f0e9cc;
+  background-color: white;
 }
 
